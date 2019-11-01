@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "116445230072",
+    "firebase_url": "https://smart-kitchen-aac83.firebaseio.com",
+    "project_id": "smart-kitchen-aac83",
+    "storage_bucket": "smart-kitchen-aac83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116445230072:android:22f4a79a8e27f4f06e9c0d",
+        "android_client_info": {
+          "package_name": "com.example.smartkitchen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116445230072-a6rs8tj5870g4jotkm26r6im2qo81q6m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartkitchen",
+            "certificate_hash": "1e8468c473e5e43a6ae0ef57566b2b68ff0af3ac"
+          }
+        },
+        {
+          "client_id": "116445230072-ipjb291im36jqbf70716hnvrrdgd6t0q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiROLzFuyHkwJbOO23l1pGIVw50lmfMlU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "116445230072-ipjb291im36jqbf70716hnvrrdgd6t0q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
