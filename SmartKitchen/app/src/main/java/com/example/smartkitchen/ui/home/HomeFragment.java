@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.example.smartkitchen.R;
 import com.github.lzyzsd.circleprogress.ArcProgress;
 import com.github.lzyzsd.circleprogress.CircleProgress;
@@ -36,6 +37,9 @@ public class HomeFragment extends Fragment {
         final TextView textView = root.findViewById(R.id.text_home);
         ColorArcProgressBar temp=root.findViewById(R.id.temp);
         ArcProgress dustbin=root.findViewById(R.id.arc_progress);
+        TextView humidity=root.findViewById(R.id.humidity);
+        RoundCornerProgressBar load1=root.findViewById(R.id.load_1);
+
         homeViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -48,6 +52,8 @@ public class HomeFragment extends Fragment {
             DatabaseReference myRef = database.getReference(FirebaseAuth.getInstance().getCurrentUser().getUid());
             temp_updater(myRef,temp);
             dustbin_updater(myRef,dustbin);
+            humidity_updater(myRef,humidity);
+            load_1_updater(myRef, load1 );
 
 
         }
@@ -69,7 +75,7 @@ public class HomeFragment extends Fragment {
                 // Getting Post failed, log a message
             }
         };
-        myRef.child("temp").addValueEventListener(postListener);
+        myRef.child("sensor").child("temp").addValueEventListener(postListener);
     }
 
     void dustbin_updater(DatabaseReference myRef, ArcProgress dustbin )
@@ -87,16 +93,16 @@ public class HomeFragment extends Fragment {
                 // Getting Post failed, log a message
             }
         };
-        myRef.child("dustbin").addValueEventListener(postListener);
+        myRef.child("sensor").child("dustbin").addValueEventListener(postListener);
     }
 
-    /*void load_1_updater(DatabaseReference myRef, ColorArcProgressBar temp )
+    void humidity_updater(DatabaseReference myRef, TextView humidity)
     {
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
-                temp.setCurrentValues(Float.parseFloat(dataSnapshot.getValue().toString()));
+                humidity.setText(dataSnapshot.getValue().toString());
                 // ...
             }
 
@@ -105,6 +111,25 @@ public class HomeFragment extends Fragment {
                 // Getting Post failed, log a message
             }
         };
-        myRef.child("temp").addValueEventListener(postListener);
-    }*/
+        myRef.child("sensor").child("Humidity").addValueEventListener(postListener);
+    }
+
+    void load_1_updater(DatabaseReference myRef, RoundCornerProgressBar load1 )
+    {
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                load1.setProgress(Float.parseFloat(dataSnapshot.getValue().toString()));
+                // ...
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+            }
+        };
+        myRef.child("sensor").child("load1").addValueEventListener(postListener);
+    }
+
 }

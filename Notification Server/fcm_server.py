@@ -30,15 +30,16 @@ def fire_alart(registration_id):
     return print(result)
 
 while True:
-    temp=requests.get("https://smart-kitchen-aac83.firebaseio.com/9FbP47wyKDUREHziot5J4OcxyD72/temp.json").json()
+    temp=requests.get("https://smart-kitchen-aac83.firebaseio.com/9FbP47wyKDUREHziot5J4OcxyD72/sensor/temp.json").json()
     print("temp: ",temp)
-    gas=requests.get("https://smart-kitchen-aac83.firebaseio.com/9FbP47wyKDUREHziot5J4OcxyD72/gas.json").json()
+    gas=requests.get("https://smart-kitchen-aac83.firebaseio.com/9FbP47wyKDUREHziot5J4OcxyD72/sensor/gas.json").json()
     print("gas: ",gas)
 
-    if temp>40 and gas>30 and al==0:
+    if temp>40 and gas>900 and al==0:
         fire_alart(registration_id)
+        print("true")
         al=1
-    elif temp<40 or gas<30:
+    elif temp<40 or gas<900:
         al=0
 
 if __name__ == "__main__":

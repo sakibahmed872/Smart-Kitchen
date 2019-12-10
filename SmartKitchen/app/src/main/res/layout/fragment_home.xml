@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:text="Load Sensor 1"
+        android:text="Item 1"
         android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,71 +32,104 @@
 
 
     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-        android:id="@+id/progress_1"
+        android:id="@+id/load_1"
         android:layout_height="35dp"
         android:layout_width="325dp"
         android:layout_marginLeft="20dp"
         android:layout_gravity="center"
         app:rcProgressColor="@android:color/holo_red_light"
         app:rcBackgroundColor="#009600"
-        app:rcProgress="30"
-        app:rcMax="100" />
-
-    <TextView
-        android:text="Load Sensor 2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="8dp"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:rcProgress="0"
+        app:rcMax="1000" />
 
 
-    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-        android:id="@+id/progress_2"
-        android:layout_height="35dp"
-        android:layout_width="325dp"
-        android:layout_marginLeft="20dp"
-        android:layout_gravity="center"
-        app:rcProgressColor="@android:color/holo_red_light"
-        app:rcBackgroundColor="#009600"
-        app:rcProgress="30"
-        app:rcMax="100"/>
 
     <com.shinelw.library.ColorArcProgressBar
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6dp"
         android:id="@+id/temp"
-        app:is_need_content="true"
-        app:max_value="100"
-        app:back_width="2dp"
-        app:front_width="10dp"
-        app:total_engle="270"
-        app:is_need_unit="true"
-        app:is_need_dial="true"
-        app:string_unit="Temperature"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:foregroundGravity="center"
+        app:back_color="@android:color/darker_gray"
+        app:back_width="3dp"
         app:front_color1="#00ff00"
         app:front_color2="#ffff00"
         app:front_color3="#ff0000"
-        app:back_color="@android:color/darker_gray"
-        />
+        app:front_width="10dp"
+        app:is_need_content="true"
+        app:is_need_dial="true"
+        app:is_need_unit="true"
+        app:max_value="50"
+        app:string_unit="Temperature"
+        app:total_engle="270" />
 
-    <com.github.lzyzsd.circleprogress.ArcProgress
-        android:id="@+id/arc_progress"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        app:arc_bottom_text="Dustbin"
-        app:arc_finished_color="#ff0000"
-        app:arc_max="100"
-        app:arc_progress="55"
-        app:arc_text_color="	#000000"
-        app:arc_unfinished_color="#009600" />
+        android:layout_marginTop="40dp">
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="#F9F4F4"
+            android:orientation="vertical"
+            android:textAlignment="center"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:keepScreenOn="true"
+            android:layout_gravity="center"
+            android:text="Humidity"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textDirection="firstStrong"
+            android:textIsSelectable="false"
+            android:textSize="30sp"
+            android:textStyle="italic"
+            android:typeface="sans"
+            android:verticalScrollbarPosition="defaultPosition"
+            android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/humidity"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:keepScreenOn="true"
+                android:text="--"
+                android:layout_gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textDirection="firstStrong"
+                android:textIsSelectable="false"
+                android:textSize="30sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                android:verticalScrollbarPosition="defaultPosition"
+                android:visibility="visible">
+
+        </TextView>
+
+        </LinearLayout>
+
+
+
+        <com.github.lzyzsd.circleprogress.ArcProgress
+            android:id="@+id/arc_progress"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:arc_bottom_text="Dustbin"
+            android:layout_marginLeft="200dp"
+            app:arc_finished_color="#ff0000"
+            app:arc_max="100"
+            app:arc_progress="0"
+            app:arc_text_color="#000000"
+            app:arc_unfinished_color="#009600" />
+
+    </RelativeLayout>
 
 
 </LinearLayout>
